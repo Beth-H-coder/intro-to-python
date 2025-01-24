@@ -1,12 +1,7 @@
-# Video alternative: https://vimeo.com/954334376/0c486313d0#t=460
 
-# Now, let's look at statements. You've already seen a few
-# of these too:
-
+# Statements
 added = 2 + 3
 
-# Is this a statement? Yes!
-#
 # That statement uses the `=` operator to assign the result
 # of the expression on the right (`2 + 3`) to the name on
 # the left (`added`).
@@ -21,6 +16,7 @@ my_favourite_number = 99
 
 print(f"My favourite number is: {my_favourite_number}")
 print("---")
+
 
 # Here's the state of the above program after all lines are
 # executed:
@@ -44,9 +40,3 @@ todays_day = 20
 print(f"Today's day is: {todays_day}")
 print("---")
 
-# @TASK: What will it print? Run this file and find out.
-#
-# You'll see that the first `19` value is thrown away and
-# replaced with the second `20` value.
-
-# When you're ready, move on to 019_state.py

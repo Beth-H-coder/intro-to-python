@@ -1,15 +1,4 @@
-# Video alternative: https://vimeo.com/954334163/bf61706e77#t=338
-
 from lib.helpers import check_that_these_are_equal
-
-# We've seen the `==` comparison operator. There are some
-# others too. Each of them evaluates to True or False, which
-# is how the `if` knows whether to execute or not.
-
-# @TASK: Research by searching the web for "python
-# comparison operators" and complete the exercises below.
-#
-# I've started it for you.
 
 print("")
 print("Function: a_is_equal_to_b")
@@ -33,15 +22,12 @@ check_that_these_are_equal(
 )
 
 # == Exercise One ==
-
 print("")
 print("Function: a_is_less_than_b")
 
 def a_is_less_than_b(a, b):
-  # Uncomment this next line and replace ?? with the right operator
-  # return a ?? b
-  pass
-
+  return a < b
+  
 check_that_these_are_equal(
   a_is_less_than_b(1, 2),
   True
@@ -63,8 +49,8 @@ print("")
 print("Function: a_is_greater_than_b")
 
 def a_is_greater_than_b(a, b):
-  # return a ?? b
-  pass
+  return a > b
+  
 
 check_that_these_are_equal(
   a_is_greater_than_b(1, 2),
@@ -87,8 +73,8 @@ print("")
 print("Function: a_is_less_than_or_equal_to_b")
 
 def a_is_less_than_or_equal_to_b(a, b):
-  # return a ?? b
-  pass
+  return a <= b
+  
 
 check_that_these_are_equal(
   a_is_less_than_or_equal_to_b(1, 2),
@@ -111,8 +97,8 @@ print("")
 print("Function: a_is_greater_than_or_equal_to_b")
 
 def a_is_greater_than_or_equal_to_b(a, b):
-  # return a ?? b
-  pass
+ return a >= b
+  
 
 check_that_these_are_equal(
   a_is_greater_than_or_equal_to_b(1, 2),
@@ -135,8 +121,8 @@ print("")
 print("Function: a_is_not_equal_to_b")
 
 def a_is_not_equal_to_b(a, b):
-  # return a ?? b
-  pass
+  return a != b
+  
 
 check_that_these_are_equal(
   a_is_not_equal_to_b(1, 2),
@@ -158,11 +144,8 @@ check_that_these_are_equal(
 print("")
 print("Function: a_is_within_b")
 
-# May be a little tricky — search for
-# "python check if string contains substring"
 def a_is_within_b(a, b):
-  # return a ?? b
-  pass
+  return a in b
 
 check_that_these_are_equal(
   a_is_within_b("e", "hello"),
@@ -174,4 +157,23 @@ check_that_these_are_equal(
   False
 )
 
-# When you're done, move on to 028_logic.py
+txt = "The rain in Spain falls mainly on the plain"
+is_present = 'rain' in txt
+print(is_present)
+
+
+is_present_2 = 'brain' in txt
+print(is_present_2)
+
+
+is_not_present = 'England' not in txt
+print(is_not_present)
+
+my_dict = { 'a': 1, 'b': 2, 'c': 3}
+print('b' in my_dict)
+
+my_dict_with_num_keys = { 1: 'a', 2: 'b', 3: 'c'}
+print('b' in my_dict_with_num_keys)
+
+my_dict_with_num_keys_2 = { 1: 'a', 2: 'b', 3: 'c'}
+print(3 in my_dict_with_num_keys)

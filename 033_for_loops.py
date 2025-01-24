@@ -1,33 +1,16 @@
-# Video alternative: https://vimeo.com/954334424/6e40d11ef1#t=300
-
-# There's another kind of loop — the `for` loop.
-
-# It looks like this:
 
 for letter in ["a", "b", "c"]:
   print(f"This letter is {letter}")
 
-# @TASK: Run this file and see what it does.
-
-# In programming jargon: the Python for loop iterates over a
-# list.
-
-# In everyday language: the Python for loop takes each item
-# one by one and runs its block of code with that item.
-
-# It's pretty nice. And there's another Python helper that
-# makes it even more useful:
+print("- - - range - -  -")
 
 def print_numbers_in_range():
   for number in range(0, 10):
     print(f"This number is {number}")
 
-# `range` more or less creates a list of the numbers from
-# its first parameter to one below its last parameter. So:
-# the numbers 0-9.
+print_numbers_in_range()
 
-# Compare this to the `while` version which does the same
-# thing:
+print("- - - with a while - -  -")
 
 def print_numbers_in_range_with_a_while():
   number = 0
@@ -35,12 +18,29 @@ def print_numbers_in_range_with_a_while():
     print(f"This number is {number}")
     number = number + 1
 
-# The `for` and `range` version is a bit more concise.
 
-# You're probably expecting an exercise now. But not just
-# yet. Lists and loops are very powerful tools and we're
-# going to go through three different ways of using them:
+print_numbers_in_range_with_a_while()
 
+# loop over indices of list using range() and len()
+
+def create_string_and_dict(list):
+  new_str = ""
+  my_dict = {}
+  for i in range(len(list)):
+    new_str += list[i] + " "
+    my_dict[i] = list[i]
+    print(i, list[i])
+  print(new_str[:-1] + '.')    
+  return my_dict
+
+print(create_string_and_dict(['Jack', 'and', 'Jill', 'went', 'up', 'the', 'hill']))
+
+
+def count_in_increments(num):
+  for x in range(0, 10, num):
+    print(x)
+  
+count_in_increments(3)
 # * Summarising: Using a loop to distil a list into one
 #   value.
 
@@ -50,4 +50,3 @@ def print_numbers_in_range_with_a_while():
 # * Filtering: Using a loop to pick out only some items from
 #   a list.
 
-# To start summarising, go to 034_summarising.py

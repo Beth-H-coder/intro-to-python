@@ -1,6 +1,3 @@
-# Video alternative: https://vimeo.com/954334266/1ad4327868
-
-# Start reading here:
 
 def just_return_it(num):
   return num
@@ -42,13 +39,7 @@ just_return_it(4)
 print("just_return_it(4) returns:")
 print(just_return_it(4))
 
-# @TASK: Run this program in the right-hand shell panel:
-#
-#   python 011_identity.py
-#
-# If you don't see the shell, watch this video:
-# https://vimeo.com/954334352/1f0dee9379
-#
+
 # After running the command, you should see:
 #
 # ```
@@ -60,4 +51,3 @@ print(just_return_it(4))
 # function with the input parameter `4` — it gives us `4`
 # back.
 #
-# Now move on to 012_add_one.py
