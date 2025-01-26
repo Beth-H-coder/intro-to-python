@@ -1,6 +1,3 @@
-# Video alternative: https://vimeo.com/954334009/67af9910fc#t=1054
-
-# So far you've spent a lot of time writing new programs.
 
 # This is great for learning the fundamentals of code, but
 # actually isn't very realistic. Most software engineers
@@ -11,11 +8,11 @@
 # challenge is to implement some improvements:
 
 # 1. Right now users can place their tiles over the other
-#    user's tiles. Prevent this.
+#    user's tiles. Prevent this. DONE 
 
 # 2. Right now if the game reaches a draw with no more free
 #    spaces, the game doesn't end. Make it end at that
-#    point.
+#    point. DONE 
 
 # 3. If you want a real challenge, try to rework this
 #    program to support a 5x5 board rather than a 3x3 board.
@@ -24,8 +21,6 @@
 #    program to take a parameter `board_size` and play a
 #    game with a board of that size.
 
-# This is getting really challenging now — and is entirely
-# optional. Don't forget about your assessment!
 
 def play_game():
   board = [
@@ -57,8 +52,21 @@ def print_board(board):
   return grid
 
 def make_move(board, row, column, player):
-  board[row][column] = player
-  return board
+  # check here to see if 'X' or 'O' already in place
+#  if board[row][column] != '.' and board[row][column] != 'X':
+    if board[row][column] not in ['X', 'O']:# Q1 
+      board[row][column] = player
+    else:
+      print('Sorry - that tile is taken')
+      row = int(input("Enter another row: "))
+      column = int(input("Enter another column: "))
+      make_move(board, row, column, player)
+    return board
+    # else:
+    #   print('Try again! That tile is taken!!!')
+    #   play_game(board)
+  # board[row][column] = player # original
+ 
 
 
 # This function will extract three cells from the board
@@ -68,6 +76,15 @@ def get_cells(board, coord_1, coord_2, coord_3):
     board[coord_2[0]][coord_2[1]],
     board[coord_3[0]][coord_3[1]]
   ]
+
+# checks if no empty spaces 
+def is_board_complete(board):
+  for row in board:
+    if '.' in row:
+      return False
+  return True
+      
+
 
 # This function will check if the group is fully placed
 # with player marks, no empty spaces.
@@ -98,17 +115,20 @@ groups_to_check = [
 ]
 
 def is_game_over(board):
+  
+  if is_board_complete(board):
+    print("Game over! All cells are filled!")
+    return True
+   
   # We go through our groups
-  for group in groups_to_check:
+    for group in groups_to_check:
     # If any of them are empty, they're clearly not a
     # winning row, so we skip them.
-    if is_group_complete(board, group[0], group[1], group[2]):
-      if are_all_cells_the_same(board, group[0], group[1], group[2]):
+      if is_group_complete(board, group[0], group[1], group[2]):
+       if are_all_cells_the_same(board, group[0], group[1], group[2]):
         return True # We found a winning row!
         # Note that return also stops the function
-  return False # If we get here, we didn't find a winning row
-
-# And test it out:
-
+    return False # If we get here, we didn't find a winning row
+  print('break here')
 print("Game time!")
 play_game()

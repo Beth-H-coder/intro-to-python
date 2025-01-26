@@ -65,12 +65,24 @@ counts_2 = {num: numbers_list_2.count(num) for num in set(numbers_list_2)}
 
 print(counts_2)  # Output: {1: 1, 2: 2, 3: 3}
 
-print('--- play around')
-test_dict = {1: 5, 2: 3, 4: 9, 4: 1, 5: 2}
-# 1: *****
-# 2: ***
-# ['hi', 'i', 'am', 'fran']
-for key, value in test_dict.items():
-  print(key)
-  print(value)
-# my_str = '\n'.join(test_dict)
+# loop through dictionary with items() and dictionary comprehension and create a string with each element on a new line
+
+test_dict = {1: 5, 2: 3, 4: 9, 6: 6, 5: 2}
+
+my_str = '\n'.join(f"{key}: {value * 'x'}" for key, value in test_dict.items())
+print(my_str)
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+for x, y in thisdict.items():
+  print(x, y)
+
+print(thisdict.items())
+
+
+
+
+
