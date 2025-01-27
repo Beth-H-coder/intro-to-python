@@ -9,8 +9,8 @@ print(new_string)
 
 my_string = "hello"
 
-len(my_string)             
-my_string.replace("h", "w") 
+print(len(my_string))             
+print(my_string.replace("h", "w"))
 
 # == Exercise One ==
 

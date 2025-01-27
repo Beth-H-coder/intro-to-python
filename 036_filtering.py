@@ -1,17 +1,18 @@
 from lib.helpers import check_that_these_are_equal
 
-
 raw_ages = [32, 40, None, 1, 32]
 
-clean_ages = [] 
+# clean_ages = [] 
 
-for age in raw_ages: 
-  if age != None:
-    clean_ages.append(age)
+# for age in raw_ages: 
+#   if age != None:
+#     clean_ages.append(age)
 
-print(raw_ages)
-print(clean_ages)
+# print(raw_ages)
+# print(clean_ages)
 
+res = [age for age in raw_ages if age != None]
+print('this is res => ', res)
 
 print("")
 print("Function: only_positive_numbers")
@@ -23,6 +24,8 @@ def only_positive_numbers(numbers):
     if num > 0:
       pos_nums.append(num)
   return pos_nums
+
+
 
 check_that_these_are_equal(
   only_positive_numbers([-4, 4, -3, 3]), [4, 3])
@@ -55,3 +58,8 @@ print(squared_evens([1, 2, 3, 6, 9, 10, 11, 12]))
 
 
 # Imagine someone didn't put their age in
+
+#below is filter 
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+print(newlist)

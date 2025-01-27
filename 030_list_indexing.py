@@ -1,10 +1,15 @@
 from lib.helpers import check_that_these_are_equal
 
-my_list = [44, 35, 21, 63]
+my_list = [44, 35, 21, 63, 27, 4, 22]
 my_list[0]   # Evaluates to 44
-my_list[-1]  # Evaluates to 63
+my_list[-1]  # Evaluates to 22
 my_list[1:3] # Evaluates to [35, 21]
-
+print(my_list[0]) # 44
+print(my_list[-1]) # 22
+print(my_list[1:3]) #[35, 21]
+print(my_list[:3]) # [44, 35, 21]
+print(my_list[4:]) # [27, 4, 22]
+print(my_list[-3:-2]) # [27]
 # == Exercise One ==
 
 print("Function: get_first_item")

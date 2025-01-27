@@ -66,6 +66,7 @@ def make_move(board, row, column, player):
     #   print('Try again! That tile is taken!!!')
     #   play_game(board)
   # board[row][column] = player # original
+  # return board
  
 
 
@@ -116,9 +117,9 @@ groups_to_check = [
 
 def is_game_over(board):
   
-  if is_board_complete(board):
-    print("Game over! All cells are filled!")
-    return True
+  # if is_board_complete(board):
+  #   print("Game over! All cells are filled!")
+  #   return True
    
   # We go through our groups
     for group in groups_to_check:
@@ -129,6 +130,6 @@ def is_game_over(board):
         return True # We found a winning row!
         # Note that return also stops the function
     return False # If we get here, we didn't find a winning row
-  print('break here')
+
 print("Game time!")
 play_game()

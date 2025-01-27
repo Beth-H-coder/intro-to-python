@@ -49,4 +49,4 @@ add_one(4) * 3      # Evaluates to 15
 # The `-i` flag means 'open a REPL that can use the code in this file'
 # add_one(9) + 2 * 3 # 16
 
-add_one(add_one(add_one(add_one(add_one(add_one(1)))))) # 74
+add_one(add_one(add_one(add_one(add_one(add_one(1)))))) # 7

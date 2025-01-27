@@ -7,10 +7,14 @@ lines = [
   "Chuang-tzu"
 ]
 
-text = "" 
-for line in lines: 
-  text = text + line 
-  text = text + "\n"
+# text = "" 
+# for line in lines: 
+#   text = text + line 
+#   text = text + "\n"
+
+text = ""
+for line in lines:
+  text += line + "\n"
 
 print(text)
 

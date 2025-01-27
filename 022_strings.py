@@ -2,8 +2,6 @@
 my_name = "Kay"
 print(my_name)
 
-my_name = "Kay"
-my_name = 'Kay'
 
 your_name = "Beth anne"
 print(your_name)
@@ -18,7 +16,7 @@ print(your_name.find('h'))
 print(your_name.index('h'))
 print(your_name.replace('th', 'n'))
 print(your_name.title())
-print(list(your_name))
+print(list(your_name)) # puts letters into a list 
 
 sentence = "Hello world"
 words = sentence.split()

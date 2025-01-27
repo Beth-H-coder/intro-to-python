@@ -23,7 +23,7 @@ print("Function: append_item_to_list")
 
 def append_item_to_list(the_list, item):
   res = the_list.append(item)
-  print('res =>', res)
+  print('res =>', the_list)
   return the_list
 
 check_that_these_are_equal(
@@ -142,13 +142,19 @@ print(names2)
 
 print('--- remove all occurrences ----')
 
+# def off_the_list(list, item_to_exclude):
+#   new_list = []
+#   for x in list:
+#      if x != item_to_exclude:
+#         new_list.append(x)
+#   return new_list
+
 def off_the_list(list, item_to_exclude):
-  new_list = []
-  for x in list:
-     if x != item_to_exclude:
-        new_list.append(x)
-  return new_list
+   return [item.upper() if item.startswith('o') else item for item in list if item != item_to_exclude]
 
 print(off_the_list(['benji', 'oscar', 'leo', 'pop', 'benji', 'shivers', 'stella', 'benji'], 'benji'))
 
+my_list = [30, 10, 20, 30, 40, 50]
+index = my_list.index(30, 1, 4)  # Searches for 30 between index 1 and 4
+print(index)  # Output: 2
 

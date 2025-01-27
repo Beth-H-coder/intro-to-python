@@ -27,9 +27,11 @@ def create_string_and_dict(list):
   new_str = ""
   my_dict = {}
   for i in range(len(list)):
+    print(i)
     new_str += list[i] + " "
     my_dict[i] = list[i]
     print(i, list[i])
+  print(new_str)
   print(new_str[:-1] + '.')    
   return my_dict
 
@@ -41,6 +43,13 @@ def count_in_increments(num):
     print(x)
   
 count_in_increments(3)
+
+
+def count_in_decrements(num):
+  for x in range(10, 0, num):
+    print(x)
+
+count_in_decrements(-2)
 # * Summarising: Using a loop to distil a list into one
 #   value.
 

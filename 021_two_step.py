@@ -30,6 +30,9 @@ a = 6 // 2
 print('This is a: ')
 print(a) # 3
 
+b = 8 / 2
+print('This is b: ', int(b))
+
 # == Exercise One ==
 
 print("")
@@ -70,8 +73,7 @@ print("Function: add_together_and_double")
 def add_together_and_double(num_a, num_b):
   added = num_a + num_b
   return 2 * added
-  # Add together num_a and num_b, then double the result
-  pass # <-- This does nothing, replace it with your code
+
 
 check_that_these_are_equal(
   add_together_and_double(3, 4),
