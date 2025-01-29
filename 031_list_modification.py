@@ -150,9 +150,16 @@ print('--- remove all occurrences ----')
 #   return new_list
 
 def off_the_list(list, item_to_exclude):
-   return [item.upper() if item.startswith('o') else item for item in list if item != item_to_exclude]
+   return [item for item in list if item != item_to_exclude]
+   
 
-print(off_the_list(['benji', 'oscar', 'leo', 'pop', 'benji', 'shivers', 'stella', 'benji'], 'benji'))
+
+
+
+# def off_the_list(list, item_to_exclude):
+#    return [item.upper() if item.startswith('o') else item for item in list if item != item_to_exclude]
+
+print('test off list', off_the_list(['benji', 'oscar', 'leo', 'pop', 'benji', 'shivers', 'stella', 'benji'], 'benji'))
 
 my_list = [30, 10, 20, 30, 40, 50]
 index = my_list.index(30, 1, 4)  # Searches for 30 between index 1 and 4

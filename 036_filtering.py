@@ -25,8 +25,6 @@ def only_positive_numbers(numbers):
       pos_nums.append(num)
   return pos_nums
 
-
-
 check_that_these_are_equal(
   only_positive_numbers([-4, 4, -3, 3]), [4, 3])
 check_that_these_are_equal(
@@ -46,7 +44,8 @@ def squared_evens(list):
 
 print(squared_evens([1, 2, 3, 6, 9, 10, 11, 12]))
 
-
+a = True
+print('check True', isinstance(a, int))
 # a = 10
 # b = 15
 # a = b
@@ -54,12 +53,12 @@ print(squared_evens([1, 2, 3, 6, 9, 10, 11, 12]))
 # print(a is b) # False
 
 
-
-
-
-# Imagine someone didn't put their age in
-
-#below is filter 
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 newlist = [x for x in fruits if "a" in x]
 print(newlist)
+
+
+# loop through list of numbers and convert to postive 
+nums_list = [10, 76, -87, 20, -3, -19, -154, 58, 49, -31, -86]
+pos_list = [abs(num) for num in nums_list]
+print('pos nums here =>', pos_list)

@@ -57,6 +57,7 @@ def shorten(words):
 
 def format_string(words):
     new_str = ', '.join(words)
+    print('the new string', new_str)
     return f"These words are quite long: {new_str}"
 
 

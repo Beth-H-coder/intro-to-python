@@ -8,7 +8,7 @@ for letter in text:
   if letter not in letter_counts:
     letter_counts[letter] = 1
   else:
-    letter_counts[letter] = letter_counts[letter] + 1
+    letter_counts[letter] += 1
 
 print('letter counts => ', letter_counts)
 # get the letter with the highest value
@@ -41,3 +41,11 @@ check_that_these_are_equal(
   count_words_by_length(["four", "four", "four", "one"]),
   {4: 3, 3: 1}
 )
+
+from collections import Counter 
+
+thislist = [1, 3, 4, 3, 3, 3, 6, 8, 4, 3, 3, 3, 7, 7, 3, 1, 2]
+
+numcount = Counter(thislist)
+print(numcount)
+print(numcount[3])

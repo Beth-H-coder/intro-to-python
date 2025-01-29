@@ -15,21 +15,17 @@
 #    point. DONE 
 
 # 3. If you want a real challenge, try to rework this
-#    program to support a 5x5 board rather than a 3x3 board.
+#    program to support a 5x5 board rather than a 3x3 board. DONE 
 
 # 4. If you're still not satisfied, try to rework this
 #    program to take a parameter `board_size` and play a
 #    game with a board of that size.
 
 
-def play_game():
-  board = [
-    [".", ".", "."],
-    [".", ".", "."],
-    [".", ".", "."]
-  ]
+def play_game(board_size):
+  board = make_blank_board(board_size)
   player = "X"
-  while not is_game_over(board):
+  while not is_game_over(board):# is game_ocer => T/F not True - code doesn't run - False ie. not match /complete => F - not False => True
     print(print_board(board))
     print("It's " + player + "'s turn.")
     # `input` asks the user to type in a string
@@ -43,6 +39,13 @@ def play_game():
       player = "X"
   print(print_board(board))
   print("Game over!")
+
+def make_blank_board(board_size):
+  grid = []
+  for row in range(0, board_size):
+    row = ['.'] * board_size
+    grid.append(row)
+  return grid 
 
 def print_board(board):
   formatted_rows = []
@@ -67,69 +70,105 @@ def make_move(board, row, column, player):
     #   play_game(board)
   # board[row][column] = player # original
   # return board
- 
+def generate_groups_to_check(board_size):
+  groups = []
+  for row in range(0, board_size):
+    row_group = []
+    col_group = []
+    for col in range(0, board_size):
+      row_group.append((row, col))
+      col_group.append((col, row))
+    groups.append(row_group)
+    groups.append(col_group)
+
+  diag_fwd = []
+  diag_bwd = []
+  for i in range(0, board_size):
+    diag_fwd.append((i, i))
+    diag_bwd.append((i, board_size - i -1))
+  groups.append(diag_bwd)
+  groups.append(diag_fwd)
+  return groups
 
 
 # This function will extract three cells from the board
 def get_cells(board, coord_1, coord_2, coord_3):
-  return [
-    board[coord_1[0]][coord_1[1]],
-    board[coord_2[0]][coord_2[1]],
-    board[coord_3[0]][coord_3[1]]
-  ]
+  return get_cells_by_list(board, [coord_1, coord_2, coord_3])
 
-# checks if no empty spaces 
-def is_board_complete(board):
-  for row in board:
-    if '.' in row:
-      return False
-  return True
-      
+
+
+# make more gemneric 
+def get_cells_by_list(board, coords):
+  cells = []
+  for coord in coords: 
+    cells.append(board[coord[0]][coord[1]])
+  return cells
+  
+
+# board = [
+#   [1, 2, 3, 4],
+#   [5, 6, 7, 8],
+# ]
+
+
 
 
 # This function will check if the group is fully placed
 # with player marks, no empty spaces.
-def is_group_complete(board, coord_1, coord_2, coord_3):
-  cells = get_cells(board, coord_1, coord_2, coord_3)
+def is_group_complete(board, coords):
+  cells = get_cells_by_list(board, coords)
   return "." not in cells
 
 # This function will check if the group is all the same
 # player mark: X X X or O O O
-def are_all_cells_the_same(board, coord_1, coord_2, coord_3):
-  cells = get_cells(board, coord_1, coord_2, coord_3)
+def are_all_cells_the_same(board, coords):
+  cells = get_cells_by_list(board, coords)
   return cells[0] == cells[1] and cells[1] == cells[2]
+
+
+# checks if all tiles filled
+def is_draw(board):
+  for row in board:
+    if '.' in row:
+      return False
+  return True
 
 # We'll make a list of groups to check:
 
 groups_to_check = [
   # Rows
-  [(0, 0), (0, 1), (0, 2)],
-  [(1, 0), (1, 1), (1, 2)],
-  [(2, 0), (2, 1), (2, 2)],
+  [(0, 0), (0, 1), (0, 2), (0, 3), (0,4)],
+  [(1, 0), (1, 1), (1, 2), (1, 3), (1,4)],
+  [(2, 0), (2, 1), (2, 2), (2, 3), (2,4)],
+  [(3, 0), (3, 1), (3, 2), (3, 3), (3,4)],
+  [(4, 0), (4, 1), (4, 2), (4, 3), (4,4)],
   # Columns
-  [(0, 0), (1, 0), (2, 0)],
-  [(0, 1), (1, 1), (2, 1)],
-  [(0, 2), (1, 2), (2, 2)],
+  [(0, 0), (1, 0), (2, 0), (3, 0), (4,0)],
+  [(0, 1), (1, 1), (2, 1), (3, 1), (4,1)],
+  [(0, 2), (1, 2), (2, 2), (3, 2), (4,2)],
+  [(0, 3), (1, 3), (2, 3), (3, 3), (4,3)],
+  [(0, 4), (1, 4), (2, 2), (3, 4), (4,4)],
   # Diagonals
-  [(0, 0), (1, 1), (2, 2)],
-  [(0, 2), (1, 1), (2, 0)]
+  [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)],
+  [(0, 4), (1, 3), (2, 2), (3, 1), (4, 0)]
 ]
+
 
 def is_game_over(board):
   
-  # if is_board_complete(board):
-  #   print("Game over! All cells are filled!")
-  #   return True
+  if is_draw(board):
+    print("Game over! All cells are filled!")
+    return True # Game ends
    
   # We go through our groups
-    for group in groups_to_check:
+  for group in groups_to_check:
     # If any of them are empty, they're clearly not a
     # winning row, so we skip them.
-      if is_group_complete(board, group[0], group[1], group[2]):
-       if are_all_cells_the_same(board, group[0], group[1], group[2]):
+    if is_group_complete(board, group):# if True next 
+      if are_all_cells_the_same(board, group):
         return True # We found a winning row!
         # Note that return also stops the function
-    return False # If we get here, we didn't find a winning row
+  return False # If we get here, we didn't find a winning row
 
 print("Game time!")
-play_game()
+play_game(6)

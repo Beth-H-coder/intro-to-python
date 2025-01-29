@@ -32,11 +32,11 @@ def print_board(board):
   return grid
 
 # test
-# starter_board = [
-#   [".", ".", "."],
-#   [".", ".", "."],
-#   [".", ".", "."]
-# ]
+starter_board = [
+  [".", ".", "."],
+  [".", ".", "."],
+  [".", ".", "."]
+]
 
 # print("Our starting board:")
 # print(print_board(starter_board))
